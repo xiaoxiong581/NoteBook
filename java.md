@@ -9,5 +9,7 @@
 `./kafka-console-producer.sh --broker-list ip:9092 --topic test_topic`
 ##### 消费数据
 `./kafka-console-consumer.sh  --zookeeper ip:2181  --topic test_topic --from-beginning`
+##### 查看消费者group列表
+`./kafka-consumer-groups.sh --bootstrap-server ip:9092 --list`
 ##### 查看消费者topic消费情况
 `./kafka-consumer-groups.sh --bootstrap-server ip:9092 --group group_id --describe`
