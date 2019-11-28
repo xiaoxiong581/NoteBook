@@ -12,3 +12,5 @@
 `./kafka-consumer-groups.sh --bootstrap-server ip:9092 --list`
 ##### 查看消费者topic消费情况
 `./kafka-consumer-groups.sh --bootstrap-server ip:9092 --group group_id --describe`
+##### 新增或修改topic配置
+`./kafka-configs.sh --zookeeper ip:2181 --entity-type topics --entity-name test_topic --alter --add-config 'k1=v1,k2=v2'`
