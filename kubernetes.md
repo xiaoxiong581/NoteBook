@@ -1,3 +1,5 @@
+##### 查询集群有哪些资源类型（Kind）
+`kubectl api-resources`
 ##### 查询集群节点
 `kubectl get node`
 ##### 查询集群namespace
