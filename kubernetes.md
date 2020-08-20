@@ -18,3 +18,5 @@
 `kubectl -n {namespace} edit svc {service name}`
 ##### 查看pod详情
 `kubectl -n {namespace} describe pod {pod name}`
+##### 通过api-server获取pod详情
+`curl https://127.0.0.1:8080/api/v1/namespaces/{namespace}/pods/{podName} --header "Authorization: Bearer {token}" -k`
