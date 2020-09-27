@@ -9,3 +9,9 @@ cat /proc/{进程号}/cmdline
 lsof | grep deleted (比较耗时)
 find /proc/*/fd -ls | grep '(deleted)'
 ```
+
+##### 3. 分割文件
+```sh
+split -b {size(K/M/G)} {input file} {output file}
+cat {output file}* {input file}
+```
