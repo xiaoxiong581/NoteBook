@@ -18,3 +18,8 @@ cat {output file}* > {input file}
 PS: window
 COPY /b {output file}* {input file}
 ```
+
+##### 4. tcpdump抓包
+```sh
+tcpdump -i bond0  port 80 -ennA
+```
