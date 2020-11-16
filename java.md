@@ -7,7 +7,6 @@
 `keytool -genkey -alias customerManager -keyalg RSA -keysize 2048  -keystore server.keystore -validity 365`
 
 ##### nginx证书文件
-`openssl genrsa -out server.key 2048`  
 `openssl req -new -x509 -nodes -out server.crt -keyout server.key`
 
 ##### consul获取配置
