@@ -23,3 +23,10 @@ COPY /b {output file}* {input file}
 ```sh
 tcpdump -i bond0  port 80 -ennA
 ```
+
+##### 5. centos7安装MySQL
+```sh
+wget https://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+rpm -ivh mysql57-community-release-el7-8.noarch.rpm
+yum install mysql-server
+```
