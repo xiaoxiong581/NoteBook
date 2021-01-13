@@ -35,3 +35,8 @@ yum install mysql-server
 ```sh
 yum list –showduplicates {name}
 ```
+
+##### 7. 挂载cephfs到本地
+```sh
+mount -t ceph xxx.xxx.xxx.xxx:/ /test -o name=admin,secret=xxxxxxxxxx==
+```
