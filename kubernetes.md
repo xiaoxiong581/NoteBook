@@ -18,5 +18,7 @@
 `kubectl -n {namespace} edit svc {service name}`
 ##### 查看pod详情
 `kubectl -n {namespace} describe pod {pod name}`
+##### 强制删除Terminating状态的pod
+`kubectl delete pods {pod name} --grace-period=0 --force -n {namespace}`
 ##### 通过api-server获取pod详情
 `curl https://127.0.0.1:8080/api/v1/namespaces/{namespace}/pods/{podName} --header "Authorization: Bearer {token}" -k`
