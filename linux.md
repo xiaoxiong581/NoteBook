@@ -40,3 +40,13 @@ yum list –showduplicates {name}
 ```sh
 mount -t ceph xxx.xxx.xxx.xxx:/ /test -o name=admin,secret=xxxxxxxxxx==
 ```
+
+##### 8. MySQL编译
+```sh
+wget https://github.com/mysql/mysql-server/archive/mysql-5.7.32.tar.gz
+tar xzvf mysql-5.7.32.tar.gz
+cd mysql-5.7.32
+cmake . -DCMAKE_INSTALL_PREFIX=/opt/mysql/mysql -DMYSQL_DATADIR=/opt/mysql/data -DWITH_BOOST=/usr/local/boost -DSYSCONFDIR=/opt/mysql -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_MYISAM_STORAGE_ENGINE=1 -DENABLED_LOCAL_INFILE=1 -DENABLE_DTRACE=0 -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_EMBEDDED_SERVER=1
+make -j 2
+make install
+```
