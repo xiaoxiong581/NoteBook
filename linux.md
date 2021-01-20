@@ -50,3 +50,13 @@ cmake . -DCMAKE_INSTALL_PREFIX=/opt/mysql/mysql -DMYSQL_DATADIR=/opt/mysql/data 
 make -j 2
 make install
 ```
+
+##### 9. ceph编译
+```sh
+git clone --branch v15.2.8 https://github.com/ceph/ceph.git
+cd ceph
+./install-deps.sh
+ARGS="-DCMAKE_C_COMPILER=gcc" ./do_cmake.sh -DCMAKE_BUILD_TYPE=RelWithDebInfo
+make
+make install
+```
