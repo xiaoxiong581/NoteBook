@@ -60,3 +60,8 @@ ARGS="-DCMAKE_C_COMPILER=gcc" ./do_cmake.sh -DCMAKE_BUILD_TYPE=RelWithDebInfo
 make
 make install
 ```
+
+##### 10. 获取consul配置
+```sh
+curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq .[0] | jq -r .Value | base64 -d
+```
