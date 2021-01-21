@@ -68,5 +68,5 @@ curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq 
 
 ##### 11. 扩容VirtualBox存储
 ```sh
-C:\Program Files\Oracle\VirtualBox>VBoxManage modifyhd E:\VirtualBox VMs\Centos7_B\Centos7_B.vdi --resize 40960
+C:\Program Files\Oracle\VirtualBox>VBoxManage modifyhd "E:\VirtualBox VMs\Centos7_B\Centos7_B.vdi" --resize 40960
 ```
