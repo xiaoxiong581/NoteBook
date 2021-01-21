@@ -70,5 +70,6 @@ curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq 
 ```sh
 C:\Program Files\Oracle\VirtualBox>VBoxManage modifyhd "E:\VirtualBox VMs\Centos7_B\Centos7_B.vdi" --resize 40960
 #刷新磁盘
+partprobe
 xfs_growfs  /dev/centos/root
 ```
