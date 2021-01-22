@@ -59,6 +59,9 @@ cd ceph
 ARGS="-DCMAKE_C_COMPILER=gcc" ./do_cmake.sh -DCMAKE_BUILD_TYPE=RelWithDebInfo
 make
 make install
+
+#指定cypress包
+export CYPRESS_INSTALL_BINARY=/opt/cypress.zip
 ```
 
 ##### 10. 获取consul配置
