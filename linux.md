@@ -53,9 +53,12 @@ make install
 
 ##### 9. ceph编译
 ```sh
+#公共
 git clone --branch v15.2.8 https://github.com/ceph/ceph.git
 cd ceph
 ./install-deps.sh
+#指定cypress包
+export CYPRESS_INSTALL_BINARY=/opt/cypress.zip
 
 #编译
 ARGS="-DCMAKE_C_COMPILER=gcc" ./do_cmake.sh -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -72,9 +75,6 @@ cd ~/rpmbuild/SOURCES
 rpm2cpio ceph-15.2.8-0.*.src.rpm | cpio -idmv
 mv ceph.spec ../SPECS
 rpmbuild -ba ~/rpmbuild/SPECS/ceph.spec
-
-#指定cypress包
-export CYPRESS_INSTALL_BINARY=/opt/cypress.zip
 ```
 
 ##### 10. 获取consul配置
