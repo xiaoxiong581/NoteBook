@@ -56,9 +56,22 @@ make install
 git clone --branch v15.2.8 https://github.com/ceph/ceph.git
 cd ceph
 ./install-deps.sh
+
+#编译
 ARGS="-DCMAKE_C_COMPILER=gcc" ./do_cmake.sh -DCMAKE_BUILD_TYPE=RelWithDebInfo
 make
+
+#安装
 make install
+
+#生成rpm包
+./make-srpm.sh
+mkdir ~/rpmbuild/{BUILD,SOURCES,SPECS,RPMS,BUILDROOT}
+cp ceph/ceph-15.2.8-0.*.src.rpm ~/rpmbuild/SOURCES
+cd ~/rpmbuild/SOURCES
+rpm2cpio ceph-15.2.8-0.*.src.rpm | cpio -idmv
+mv ceph.spec ../SPECS
+rpmbuild -ba ~/rpmbuild/SPECS/ceph.spec
 
 #指定cypress包
 export CYPRESS_INSTALL_BINARY=/opt/cypress.zip
