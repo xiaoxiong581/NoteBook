@@ -58,6 +58,7 @@ git clone --branch v15.2.8 https://github.com/ceph/ceph.git
 cd ceph
 ./install-deps.sh
 #指定cypress包
+wget https://cdn.cypress.io/desktop/4.4.0/linux-x64/cypress.zip
 export CYPRESS_INSTALL_BINARY=/opt/cypress.zip
 
 #编译
