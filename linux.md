@@ -52,6 +52,13 @@ make install
 ```
 
 ##### 9. ceph编译
+```txt
+要求：
+1、cmake 要高于3.10.2 版本
+2、gcc版本要 >= 8(编译过程会自动安装，可暂时不提前升级)
+3、磁盘空间保证至少50G左右
+4、内存至少8G左右，cpu 2核以上
+```
 ```sh
 #公共
 git clone --branch v15.2.8 https://github.com/ceph/ceph.git
