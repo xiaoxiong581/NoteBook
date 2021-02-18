@@ -22,6 +22,7 @@ COPY /b {output file}* {input file}
 ##### 4. tcpdump抓包
 ```sh
 tcpdump -i bond0  port 80 -ennA
+tcpdump -i enp0s8 -s 0 -l -w - dst port 3402 | strings
 ```
 
 ##### 5. centos7安装MySQL
