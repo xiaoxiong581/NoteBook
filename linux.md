@@ -86,12 +86,52 @@ mv ceph.spec ../SPECS
 rpmbuild -ba ~/rpmbuild/SPECS/ceph.spec
 ```
 
-##### 10. 获取consul配置
+##### 10. 下载ceph离线安装包
+```sh
+#安装工具包
+yum -y install epel-release
+yum -y install yum-utils
+yum -y install createrepo
+
+#在可连外网的主机上配置ceph的repo
+[ceph]
+name=ceph
+baseurl=http://mirrors.aliyun.com/ceph/rpm-octopus/el7/x86_64/
+gpgcheck=0
+[ceph-noarch]
+name=cephnoarch
+baseurl=http://mirrors.aliyun.com/ceph/rpm-octopus/el7/noarch/
+gpgcheck=0
+[ceph-source]
+name=cephsource
+baseurl=http://mirrors.aliyun.com/ceph/rpm-octopus/el7/x86_64/
+gpgcheck=0
+[ceph-radosgw]
+name=cephradosgw
+baseurl=http://mirrors.aliyun.com/ceph/rpm-octopus/el7/x86_64/
+gpgcheck=0
+
+#下载ceph离线包
+mkdir ceph_v15.2.8
+repotrack ceph ceph-mon ceph-mgr ceph-radosgw ceph-osd ceph-deploy -p ceph_v15.2.8/
+
+#生成用于离线安装的仓库元数据
+createrepo -v ceph_v15.2.8
+
+#离线主机配置ceph安装目录
+[Local-ceph]
+name=ceph 13.2.10
+baseurl=file:///home/xxx/ceph_v15.2.8
+enabled=1
+gpgcheck=0
+```
+
+##### 11. 获取consul配置
 ```sh
 curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq .[0] | jq -r .Value | base64 -d
 ```
 
-##### 11. 扩容VirtualBox存储
+##### 12. 扩容VirtualBox存储
 ```sh
 C:\Program Files\Oracle\VirtualBox>VBoxManage modifyhd "E:\VirtualBox VMs\Centos7_B\Centos7_B.vdi" --resize 40960
 #刷新磁盘
