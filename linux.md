@@ -129,6 +129,8 @@ gpgcheck=0
 ##### 11. 获取consul配置
 ```sh
 curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq .[0] | jq -r .Value | base64 -d
+# 删除服务
+curl -L -X PUT -H "X-Consul-Token: $CONSUL_HTTP_TOKEN" --data '{"Node": "bypass-route", "ServiceID": "vault-sidecar-proxy"}'  http://localhost:8500/v1/catalog/deregister
 ```
 
 ##### 12. 扩容VirtualBox存储
