@@ -145,17 +145,17 @@ xfs_growfs  /dev/centos/root
 ```sh
 # 系统最大句柄数
 # echo 123456 > /proc/sys/fs/file-max 可临时修改
-# fs.file-max = 123456 添加在/etc/sysctl.conf 可永久修改
+# fs.file-max = 123456 添加在/etc/sysctl.conf 可永久修改（sysctl -p /etc/sysctl.conf或者重启系统生效）
 cat /proc/sys/fs/file-max
 
 # 系统进程最大句柄数
 # echo 123456 > /proc/sys/fs/nr_open 可临时修改
-# fs.nr_open = 123456 添加在/etc/sysctl.conf 可永久修改
+# fs.nr_open = 123456 添加在/etc/sysctl.conf 可永久修改（sysctl -p /etc/sysctl.conf或者重启系统生效）
 cat /proc/sys/fs/nr_open
 
 # 系统单用户最大句柄数
 # ulimit -n 123456 可临时修改
-# * soft nofile 65535 || * hard nofile 65535 2行添加在/etc/security/limits.conf 可永久修改
+# * soft nofile 65535 || * hard nofile 65535 2行添加在/etc/security/limits.conf 可永久修改（重新登录用户生效）
 ulimit -n
 ulimit -a 可以查看所有信息
 ```
