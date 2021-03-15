@@ -158,4 +158,8 @@ cat /proc/sys/fs/nr_open
 # * soft nofile 65535 || * hard nofile 65535 2行添加在/etc/security/limits.conf 可永久修改（重新登录用户生效）
 ulimit -n
 ulimit -a 可以查看所有信息
+
+# 结论
+# 1、容器句柄数受宿主机进程句柄数限制（容器内部可以单独调整句柄数限制，但是只能低于宿主机设置的进程句柄数限制） /proc/sys/fs/nr_open
+# 2、所有容器受宿主机最大句柄数限制，加起来不能超过宿主机最大句柄数限制（有些容器有例外，比如mysql容器）  /proc/sys/fs/file-max
 ```
