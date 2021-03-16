@@ -133,6 +133,8 @@ curl -X GET http://{ip}:{port}/v1/kv/config/global_config?token={token} -s | jq 
 curl -L -X PUT -H "X-Consul-Token: $CONSUL_HTTP_TOKEN" --data '{"Node": "bypass-route", "ServiceID": "vault-sidecar-proxy"}'  http://localhost:8500/v1/catalog/deregister
 # 查询服务
 curl -L -X GET -H "X-Consul-Token: $CONSUL_HTTP_TOKEN" http://localhost:8500/v1/catalog/service/{serviceName}
+
+consul members --token token-xxx
 ```
 
 ##### 12. 扩容VirtualBox存储
