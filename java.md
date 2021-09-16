@@ -2,6 +2,7 @@
 1. [Kafka](java/kafka.md)
 2. [SpringBoot](java/springboot.md)
 3. [ElasticSearch](java/ElasticSearch.md)
+4. [Redis](java/Redis.md)
 
 
 ##### 生成证书文件
