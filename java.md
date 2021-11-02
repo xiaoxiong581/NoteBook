@@ -12,6 +12,9 @@
 ##### nginx证书文件
 `openssl req -new -x509 -nodes -out server.crt -keyout server.key`
 
+##### 查看证书文件内容
+`keytool -list  -v -keystore e:/keytool/yushan.keystore -storepass 123456`
+
 ##### consul获取配置
 ```sh
 wget --header "X-Consul-Token: {token}" http://127.0.0.1:8500/v1/kv/config/global_config
