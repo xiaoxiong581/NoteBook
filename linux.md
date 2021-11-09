@@ -34,7 +34,7 @@ yum install mysql-server
 
 ##### 6. 查找软件包所有版本
 ```sh
-yum list –showduplicates {name}
+yum list --showduplicates {name}
 ```
 
 ##### 7. 挂载cephfs到本地
